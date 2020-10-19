@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -13,11 +16,7 @@
     "module": "commonjs",
     "target": "es2018",
     "lib": ["es2015", "es2018", "esnext.asynciterable", "dom"],
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "db-migrate": ["src/types/db-migrate"]
-    }
+    "outDir": "dist"
   },
   "include": ["src"],
   "exclude": ["**/*.spec.ts"]
