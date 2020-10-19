@@ -4,6 +4,6 @@
   "description": "Service for generating and encrypting xlsx files",
   "main": "src/index.ts",
   "repository": "https://github.com/MrKiplin/xlsx-encrypter.git",
-  "author": "MrKiplin <tjworks@hotmail.co.uk>",
+  "author": "Theodore J H Jones <https://github.com/MrKiplin>",
   "license": "MIT"
 }
