@@ -1,5 +1,8 @@
 version: 2.1
 
+npmrc: &npmrc
+  run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+
 ignore-main-branch: &ignore-main-branch
   branches:
     ignore: main
@@ -42,12 +45,30 @@ jobs:
           paths:
             - dist/
 
+  publish:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - yarn-install
+      - yarn-save-cache
+      - run: yarn build
+      - run: git config user.email "tjworks@hotmail.co.uk
+      - run: git config user.name "MrKiplin"
+      - run: yarn publish
+
 workflows:
   all-commits:
     jobs:
       - test-and-build:
           filters: *ignore-main-branch
+      - publish:
+          requires:
+            - test-and-build
   master:
     jobs:
       - test-and-build:
           filters: *only-main-branch
+      - publish:
+          requires:
+            - test-and-build
