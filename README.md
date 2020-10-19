@@ -58,6 +58,7 @@ yarn lint
 ### Secondary Tooling
 
 - [yarn](https://yarnpkg.com/lang/en/) - Typescript package management
+- [jest](https://jestjs.io/) - Unit and integration testing framework
 
 ## Authors
 

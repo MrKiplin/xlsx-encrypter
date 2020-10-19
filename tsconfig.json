@@ -7,7 +7,7 @@
     "resolveJsonModule": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "skipLibCheck": true,
     "strict": true,
     "module": "commonjs",
