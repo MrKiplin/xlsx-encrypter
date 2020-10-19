@@ -52,6 +52,7 @@ jobs:
       - checkout
       - yarn-install
       - yarn-save-cache
+      - *npmrc
       - run: yarn build
       - run: git config user.email "tjworks@hotmail.co.uk
       - run: git config user.name "MrKiplin"
