@@ -1,0 +1,53 @@
+version: 2.1
+
+ignore-main-branch: &ignore-main-branch
+  branches:
+    ignore: main
+
+only-main-branch: &only-main-branch
+  branches:
+    only: main
+
+commands:
+  yarn-install:
+    description: Install cached yarn packages
+    steps:
+      - restore_cache:
+          keys: ['v2-{{ checksum "yarn.lock" }}']
+      - run: yarn config set yarn-offline-mirror ~/.cache/yarn
+      - run: yarn install --frozen-lockfile
+
+  yarn-save-cache:
+    description: Save yarn packages cache
+    steps:
+      - save_cache:
+          key: v2-{{ checksum "yarn.lock" }}
+          paths: ["~/.cache"]
+
+jobs:
+  test-and-build:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - yarn-install
+      - yarn-save-cache
+      - run:
+          command: |
+            yarn lint
+            yarn test
+      - run: yarn build
+      - persist_to_workspace:
+          root: /home/circleci/project/
+          paths:
+            - dist/
+
+workflows:
+  all-commits:
+    jobs:
+      - test-and-build:
+          filters: *ignore-main-branch
+  master:
+    jobs:
+      - test-and-build:
+          filters: *only-main-branch
