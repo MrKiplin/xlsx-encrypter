@@ -60,6 +60,12 @@ yarn lint
 - [yarn](https://yarnpkg.com/lang/en/) - Typescript package management
 - [jest](https://jestjs.io/) - Unit and integration testing framework
 
+## Contributing
+
+Have a bug? File an issue with a simple example that reproduces this so we can take a look and confirm.
+
+Want to make a change? Submit a PR, explain why it's useful, and make sure you've updated the docs (this file) and the tests.
+
 ## Authors
 
 ![mrkiplin-icon](docs/mrkiplin-icon.gif)
