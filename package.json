@@ -1,0 +1,9 @@
+{
+  "name": "xlsx-encrypter",
+  "version": "1.0.0",
+  "description": "Service for generating and encrypting xlsx files",
+  "main": "src/index.ts",
+  "repository": "https://github.com/MrKiplin/xlsx-encrypter.git",
+  "author": "MrKiplin <tjworks@hotmail.co.uk>",
+  "license": "MIT"
+}
