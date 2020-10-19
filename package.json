@@ -1,0 +1,53 @@
+{
+  "name": "xlsx-encrypter",
+  "version": "1.1.0",
+  "description": "Service for generating and encrypting xlsx files",
+  "main": "dist/index.js",
+  "types": "dist",
+  "repository": "https://github.com/MrKiplin/xlsx-encrypter.git",
+  "author": "Theodore J H Jones <https://github.com/MrKiplin>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --runInBand",
+    "lint": "eslint -c .eslintrc.js --ext .ts 'src/**/*.ts'",
+    "start": "ts-node-dev src/index.ts",
+    "build": "tsc -p ./tsconfig.build.json"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "resolveJsonModule": true
+        }
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.10",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.5.3",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.3"
+  }
+}
