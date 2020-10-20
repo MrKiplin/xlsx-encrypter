@@ -1,7 +1,7 @@
 version: 2.1
 
 npmrc: &npmrc
-  run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+  run: echo "//registry.npmjs.org/xlsx-encrypter:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
 ignore-main-branch: &ignore-main-branch
   branches:
