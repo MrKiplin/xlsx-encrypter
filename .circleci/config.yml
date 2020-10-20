@@ -60,9 +60,6 @@ workflows:
     jobs:
       - test-and-build:
           filters: *ignore-main-branch
-      - publish:
-          requires:
-            - test-and-build
   master:
     jobs:
       - test-and-build:
