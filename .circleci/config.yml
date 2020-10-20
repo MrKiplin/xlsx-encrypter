@@ -1,7 +1,7 @@
 version: 2.1
 
 npmrc: &npmrc
-  run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+  run: echo "https://registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
 ignore-main-branch: &ignore-main-branch
   branches:
@@ -56,7 +56,6 @@ jobs:
       - *npmrc
       - run: git config user.name "MrKiplin"
       - run: git config user.email "tjworks@hotmail.co.uk"
-      - run: npm config set registry http://registry.npmjs.org/
       - run: npm publish
 
 workflows:
