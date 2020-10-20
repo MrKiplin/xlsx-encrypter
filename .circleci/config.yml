@@ -54,6 +54,8 @@ jobs:
       - yarn-save-cache
       - *npmrc
       - run: yarn build
+      - run: git config user.name "MrKiplin"
+      - run: git config user.email "tjworks@hotmail.co.uk
       - run: yarn publish
 
 workflows:
