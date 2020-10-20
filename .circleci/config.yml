@@ -42,6 +42,19 @@ jobs:
           paths:
             - dist/
 
+  publish:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - yarn-install
+      - yarn-save-cache
+      - run: yarn build
+      - run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      - run: git config user.name "MrKiplin"
+      - run: git config user.email "tjworks@hotmail.co.uk"
+      - run: npm publish
+
 workflows:
   all-commits:
     jobs:
@@ -51,3 +64,6 @@ workflows:
     jobs:
       - test-and-build:
           filters: *only-main-branch
+      - publish:
+          requires:
+            - test-and-build

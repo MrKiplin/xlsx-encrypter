@@ -49,6 +49,14 @@ Code style is enforced by using a linter ([eslint](https://eslint.org/)) and [Pr
 yarn lint
 ```
 
+## Deployment
+
+### Automated
+
+Automated deployment is undertaken with CircleCI.
+
+- `main`: Deploy to NPM
+
 ## Built With
 
 ### Languages / Core Tools
@@ -59,6 +67,10 @@ yarn lint
 
 - [yarn](https://yarnpkg.com/lang/en/) - Typescript package management
 - [jest](https://jestjs.io/) - Unit and integration testing framework
+
+## Versioning
+
+You'll need to bump the package version numbers manually for changes to be pushed to the npm registry.
 
 ## Contributing
 
