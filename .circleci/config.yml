@@ -50,13 +50,13 @@ jobs:
       - image: circleci/node:12
     steps:
       - checkout
-      - *npmrc
       - yarn-install
       - yarn-save-cache
       - run: yarn build
+      - *npmrc
       - run: git config user.name "MrKiplin"
       - run: git config user.email "tjworks@hotmail.co.uk"
-      - run: yarn publish
+      - run: npm publish
 
 workflows:
   all-commits:
