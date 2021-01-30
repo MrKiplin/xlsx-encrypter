@@ -4,7 +4,14 @@ Service for generating and encrypting xlsx files
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-## Setup
+## Usage
+
+```
+yarn add ----
+npm install
+```
+
+## Getting Started
 
 ### Prerequisites
 

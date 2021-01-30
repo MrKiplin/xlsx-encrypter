@@ -11,12 +11,12 @@ export interface WorkSheets {
 
 export class XlsxGenerator {
   public createWorkSheet(
-    data: any[],
+    data: unknown[],
     sheetName: string,
     headers?: string[],
     cellOrigin?: string
   ): WorkSheets {
-    const options: any = {
+    const options = {
       header: headers,
       origin: cellOrigin,
     };
