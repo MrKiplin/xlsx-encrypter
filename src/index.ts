@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { WorkBook, WorkSheet, utils, writeFile } from "xlsx";
-import * as XlsxPopulate from "xlsx-populate";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const XlsxPopulate = require("xlsx-populate");
 
 export interface WorkSheets {
   sheet: WorkSheet;
@@ -36,6 +38,7 @@ export class XlsxGenerator {
     }
 
     writeFile(workBook, filePath);
+
     if (password) {
       this.encryptXlsxFile(filePath, password);
     }
