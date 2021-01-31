@@ -3,17 +3,31 @@
 Service for generating and encrypting xlsx files
 
 ![License](https://img.shields.io/badge/license-MIT-green)
+[![npm version](https://badge.fury.io/js/xlsx-encrypter.svg)](https://badge.fury.io/js/xlsx-encrypter)
 
 ## Installation
 
-```
-yarn add xlsx-encrypter
+```bash
 npm i xlsx-encrypter
 ```
 
-## About
+or use [Yarn](https://yarnpkg.com/lang/en/)
+
+```bash
+yarn add xlsx-encrypter
+```
 
 ## Usage
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+```
+
+or the older way
+
+```javascript
+const XlsxGenerator = require("xlsx-encrypter");
+```
 
 ## Getting Started
 
@@ -67,6 +81,12 @@ yarn lint
 Automated deployment is undertaken with CircleCI.
 
 - `main`: Deploy to NPM
+
+### Manual
+
+```bash
+yarn publish
+```
 
 ## Built With
 

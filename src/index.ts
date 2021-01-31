@@ -1,8 +1,6 @@
 import { WorkBook, WorkSheet, utils, writeFile } from "xlsx";
 const XlsxPopulate = require("xlsx-populate");
-
-// TODO: Rename this type
-export interface WorkSheets {
+export interface WorkSheetWithName {
   sheet: WorkSheet;
   name: string;
 }
@@ -13,7 +11,7 @@ export class XlsxGenerator {
     sheetName: string,
     headers?: string[],
     cellOrigin?: string
-  ): WorkSheets {
+  ): WorkSheetWithName {
     const options = {
       header: headers,
       origin: cellOrigin,
@@ -26,7 +24,7 @@ export class XlsxGenerator {
 
   public exportWorkSheetsToFile(
     filePath: string,
-    workSheets: WorkSheets[],
+    workSheets: WorkSheetWithName[],
     password?: string
   ): void {
     const workBook = this.createWorkBook();
@@ -47,6 +45,7 @@ export class XlsxGenerator {
   }
 
   private encryptXlsxFile(filePath: string, password: string) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     XlsxPopulate.fromFileAsync(filePath).then((workbook: any) => {
       workbook.toFileAsync(filePath, {
         password,
