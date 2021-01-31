@@ -1,9 +1,9 @@
 # xlsx-encrypter
 
-Service for generating and encrypting xlsx files
-
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![npm version](https://badge.fury.io/js/xlsx-encrypter.svg)](https://badge.fury.io/js/xlsx-encrypter)
+
+Service for generating and encrypting XLSX files
 
 ## Installation
 
@@ -36,7 +36,7 @@ const data = [
 const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
 ```
 
 or the older way
@@ -56,7 +56,7 @@ const data = [
 const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
 ```
 
 ### Headers
@@ -73,7 +73,7 @@ const headers = ["fruit", "quantity", "price"];
 const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales", headers);
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
 ```
 
 ### Cell Origin
@@ -96,7 +96,7 @@ const workSheet = XlsxGenerator.createWorkSheet(
 );
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
 ```
 
 ### Password Encryption
@@ -111,7 +111,7 @@ const password = "SuperSecurePassword";
 const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file with password
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet, password);
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet], password);
 ```
 
 ## Getting Started
@@ -131,14 +131,6 @@ Install project dependencies
 
 ```bash
 yarn
-```
-
-### Developing
-
-Start development server:
-
-```bash
-yarn start
 ```
 
 ## Tests
