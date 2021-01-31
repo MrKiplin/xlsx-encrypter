@@ -61,7 +61,7 @@ XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
 
 ### Headers
 
-Optional default headers can be added
+Default headers can be added
 
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
@@ -78,7 +78,7 @@ XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
 
 ### Cell Origin
 
-The cell origin of the data can be specified in ---- format
+The cell origin of the data can be specified in `A1` format
 
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
