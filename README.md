@@ -3,8 +3,118 @@
 Service for generating and encrypting xlsx files
 
 ![License](https://img.shields.io/badge/license-MIT-green)
+[![npm version](https://badge.fury.io/js/xlsx-encrypter.svg)](https://badge.fury.io/js/xlsx-encrypter)
 
-## Setup
+## Installation
+
+```bash
+npm i xlsx-encrypter
+```
+
+or use [Yarn](https://yarnpkg.com/lang/en/)
+
+```bash
+yarn add xlsx-encrypter
+```
+
+## Usage
+
+Simple usage:
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [
+  {
+    fruit: "Apples",
+    quantity: "4",
+    price: "£6.86",
+  },
+];
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+```
+
+or the older way
+
+```javascript
+const XlsxGenerator = require("xlsx-encrypter");
+
+const data = [
+  {
+    fruit: "Apples",
+    quantity: "4",
+    price: "£6.86",
+  },
+];
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+```
+
+### Headers
+
+Default headers can be added
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [];
+const headers = ["fruit", "quantity", "price"];
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales", headers);
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+```
+
+### Cell Origin
+
+The cell origin of the data can be specified in `A1` format
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [];
+const headers = ["fruit", "quantity", "price"];
+const cellOrigin = "B2";
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(
+  data,
+  "Fruit Sales",
+  headers,
+  cellOrigin
+);
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+```
+
+### Password Encryption
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [];
+const password = "SuperSecurePassword";
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+
+// Create XLSX file with password
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet, password);
+```
+
+## Getting Started
 
 ### Prerequisites
 
@@ -57,6 +167,12 @@ Automated deployment is undertaken with CircleCI.
 
 - `main`: Deploy to NPM
 
+### Manual
+
+```bash
+yarn publish
+```
+
 ## Built With
 
 ### Languages / Core Tools
@@ -82,4 +198,4 @@ Want to make a change? Submit a PR, explain why it's useful, and make sure you'v
 
 ![mrkiplin-icon](docs/mrkiplin-icon.gif)
 
-**Theo Jones** - _Initial work_ - [MrKiplin](https://github.com/MrKiplin)
+**Theo Jones** - [MrKiplin](https://github.com/MrKiplin)
