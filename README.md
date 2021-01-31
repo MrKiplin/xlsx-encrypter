@@ -19,14 +19,99 @@ yarn add xlsx-encrypter
 
 ## Usage
 
+Simple usage:
+
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [
+  {
+    fruit: "Apples",
+    quantity: "4",
+    price: "£6.86",
+  },
+];
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
 ```
 
 or the older way
 
 ```javascript
 const XlsxGenerator = require("xlsx-encrypter");
+
+const data = [
+  {
+    fruit: "Apples",
+    quantity: "4",
+    price: "£6.86",
+  },
+];
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+```
+
+### Headers
+
+Optional default headers can be added
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [];
+const headers = ["fruit", "quantity", "price"];
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales", headers);
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+```
+
+### Cell Origin
+
+The cell origin of the data can be specified in ---- format
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [];
+const headers = ["fruit", "quantity", "price"];
+const cellOrigin = "B2";
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(
+  data,
+  "Fruit Sales",
+  headers,
+  cellOrigin
+);
+
+// Create XLSX file
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet);
+```
+
+### Password Encryption
+
+```js
+import { XlsxGenerator } from "xlsx-encrypter";
+
+const data = [];
+const password = "SuperSecurePassword";
+
+// Create WorkSheets
+const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+
+// Create XLSX file with password
+XlsxGenerator.exportWorkSheetsToFile("/file-directory", workSheet, password);
 ```
 
 ## Getting Started
