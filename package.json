@@ -1,7 +1,7 @@
 {
   "name": "xlsx-encrypter",
-  "version": "1.2.6",
-  "description": "Service for generating and encrypting xlsx files",
+  "version": "1.2.7",
+  "description": "Service for generating and encrypting XLSX files",
   "main": "dist/index.js",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
