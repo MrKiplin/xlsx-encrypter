@@ -159,12 +159,6 @@ Automated deployment is undertaken with CircleCI.
 
 - `main`: Deploy to NPM
 
-### Manual
-
-```bash
-yarn publish
-```
-
 ## Built With
 
 ### Languages / Core Tools
