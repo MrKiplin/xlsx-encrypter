@@ -1,0 +1,19 @@
+{
+  "Fruit Sales": [
+    {
+      "A": "Fruit",
+      "B": "Quantity",
+      "C": "Price"
+    },
+    {
+      "A": "Apples",
+      "B": "4",
+      "C": "£6.86"
+    },
+    {
+      "A": "Oranges",
+      "B": "2",
+      "C": "£2.39"
+    }
+  ]
+}

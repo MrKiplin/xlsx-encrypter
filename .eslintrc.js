@@ -13,14 +13,17 @@ module.exports = {
     createDefaultProgram: true,
   },
   env: { node: true },
-  rules: {},
+  rules: {
+    "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-var-requires": "off",
+  },
   ignorePatterns: ["__generated__", "migrations"],
   overrides: [
     {
       files: ["*.spec.ts"],
-      rules: {
-        "@typescript-eslint/unbound-method": "off",
-      },
     },
   ],
 };

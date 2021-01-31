@@ -4,12 +4,16 @@ Service for generating and encrypting xlsx files
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-## Usage
+## Installation
 
 ```
-yarn add ----
-npm install
+yarn add xlsx-encrypter
+npm i xlsx-encrypter
 ```
+
+## About
+
+## Usage
 
 ## Getting Started
 
@@ -89,4 +93,4 @@ Want to make a change? Submit a PR, explain why it's useful, and make sure you'v
 
 ![mrkiplin-icon](docs/mrkiplin-icon.gif)
 
-**Theo Jones** - _Initial work_ - [MrKiplin](https://github.com/MrKiplin)
+**Theo Jones** - [MrKiplin](https://github.com/MrKiplin)

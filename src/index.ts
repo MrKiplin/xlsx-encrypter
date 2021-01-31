@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { WorkBook, WorkSheet, utils, writeFile } from "xlsx";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const XlsxPopulate = require("xlsx-populate");
 
+// TODO: Rename this type
 export interface WorkSheets {
   sheet: WorkSheet;
   name: string;
@@ -49,9 +47,7 @@ export class XlsxGenerator {
   }
 
   private encryptXlsxFile(filePath: string, password: string) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     XlsxPopulate.fromFileAsync(filePath).then((workbook: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       workbook.toFileAsync(filePath, {
         password,
       });

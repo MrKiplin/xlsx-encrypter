@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
+import { readFileSync } from "fs";
 import { join } from "path";
 import { dirSync } from "tmp-promise";
 import { XlsxGenerator } from ".";
+const excelToJson = require("convert-excel-to-json");
 
 describe("xlsx-generator", () => {
   const tempOutputDirectory = dirSync();
@@ -13,33 +13,49 @@ describe("xlsx-generator", () => {
   });
 
   const password = "dummy-password";
-  const sheetName = "fruit";
+  const sheetName = "Fruit Sales";
+  const headers = ["Fruit", "Quantity", "Price"];
   const dummyData = [
     {
-      apples: "Apples",
-      oranges: "Oranges",
+      Fruit: "Apples",
+      Quantity: "4",
+      Price: "£6.86",
+    },
+    {
+      Fruit: "Oranges",
+      Quantity: "2",
+      Price: "£2.39",
     },
   ];
 
-  const headers = ["apples", "oranges"];
+  const testFileDirectory = join(__dirname, "../test-files");
 
-  // eslint-disable-next-line jest/expect-expect
   it("Generates an xlsx file with headers", () => {
     const filePath = join(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       tempOutputDirectory.name,
       "/worksheet-with-headers.xlsx"
     );
-
     const workSheet = xlsxGenerator.createWorkSheet([], sheetName, headers);
     xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
-    // TODO: Add expect and test json data to compare to
+
+    const pathToExpectedReport = join(
+      testFileDirectory,
+      "worksheet-with-headers.json"
+    );
+    const expectedReportContents = readFileSync(pathToExpectedReport).toString(
+      "utf8"
+    );
+    const expectedReport = JSON.parse(expectedReportContents);
+
+    const generatedReport = excelToJson({
+      sourceFile: filePath,
+    });
+
+    expect(generatedReport).toEqual(expectedReport);
   });
 
-  // eslint-disable-next-line jest/expect-expect
-  it("Generates an xlsx file with headers and data", () => {
+  it("Generates an xlsx file with data", () => {
     const filePath = join(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       tempOutputDirectory.name,
       "/worksheet-with-data.xlsx"
     );
@@ -50,13 +66,26 @@ describe("xlsx-generator", () => {
       headers
     );
     xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
-    // TODO: Add expect and test json data to compare to
+
+    const pathToExpectedReport = join(
+      testFileDirectory,
+      "worksheet-with-data.json"
+    );
+    const expectedReportContents = readFileSync(pathToExpectedReport).toString(
+      "utf8"
+    );
+    const expectedReport = JSON.parse(expectedReportContents);
+
+    const generatedReport = excelToJson({
+      sourceFile: filePath,
+    });
+
+    expect(generatedReport).toEqual(expectedReport);
   });
 
   // eslint-disable-next-line jest/expect-expect
   it("Generates an xlsx file with password", () => {
     const filePath = join(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       tempOutputDirectory.name,
       "/worksheet-with-password.xlsx"
     );
