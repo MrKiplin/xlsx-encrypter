@@ -1,9 +1,9 @@
 # xlsx-encrypter
 
-Service for generating and encrypting xlsx files
-
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![npm version](https://badge.fury.io/js/xlsx-encrypter.svg)](https://badge.fury.io/js/xlsx-encrypter)
+
+Service for generating and encrypting XLSX files
 
 ## Installation
 
