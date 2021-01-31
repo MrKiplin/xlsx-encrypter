@@ -1,9 +1,9 @@
 {
   "Fruit Sales": [
     {
-      "A": "Fruit",
-      "B": "Quantity",
-      "C": "Price"
+      "A": "fruit",
+      "B": "quantity",
+      "C": "price"
     }
   ]
 }

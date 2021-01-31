@@ -14,17 +14,17 @@ describe("xlsx-generator", () => {
 
   const password = "dummy-password";
   const sheetName = "Fruit Sales";
-  const headers = ["Fruit", "Quantity", "Price"];
+  const headers = ["fruit", "quantity", "price"];
   const dummyData = [
     {
-      Fruit: "Apples",
-      Quantity: "4",
-      Price: "£6.86",
+      fruit: "Apples",
+      quantity: "4",
+      price: "£6.86",
     },
     {
-      Fruit: "Oranges",
-      Quantity: "2",
-      Price: "£2.39",
+      fruit: "Oranges",
+      quantity: "2",
+      price: "£2.39",
     },
   ];
 
@@ -83,6 +83,38 @@ describe("xlsx-generator", () => {
     expect(generatedReport).toEqual(expectedReport);
   });
 
+  it("Generates an xlsx file with data placed at custom cell origin", () => {
+    const filePath = join(
+      tempOutputDirectory.name,
+      "/worksheet-with-custom-cell-origin.xlsx"
+    );
+
+    const cellOrigin = "B2";
+
+    const workSheet = xlsxGenerator.createWorkSheet(
+      dummyData,
+      sheetName,
+      headers,
+      cellOrigin
+    );
+    xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
+
+    const pathToExpectedReport = join(
+      testFileDirectory,
+      "worksheet-with-custom-cell-origin.json"
+    );
+    const expectedReportContents = readFileSync(pathToExpectedReport).toString(
+      "utf8"
+    );
+    const expectedReport = JSON.parse(expectedReportContents);
+
+    const generatedReport = excelToJson({
+      sourceFile: filePath,
+    });
+
+    expect(generatedReport).toEqual(expectedReport);
+  });
+
   // eslint-disable-next-line jest/expect-expect
   it("Generates an xlsx file with password", () => {
     const filePath = join(
@@ -98,6 +130,3 @@ describe("xlsx-generator", () => {
     xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet], password);
   });
 });
-
-// TODO: Add test for cell origin
-// TODO: Add test for default headers
