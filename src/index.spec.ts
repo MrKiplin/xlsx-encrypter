@@ -18,12 +18,12 @@ describe("xlsx-generator", () => {
   const dummyData = [
     {
       fruit: "Apples",
-      quantity: "4",
+      quantity: 4,
       price: "£6.86",
     },
     {
       fruit: "Oranges",
-      quantity: "2",
+      quantity: 2,
       price: "£2.39",
     },
   ];
