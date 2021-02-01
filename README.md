@@ -130,7 +130,7 @@ const data = [];
 const headers = ["fruit", "quantity", "price"];
 const cellOrigin = "B2";
 
-// Create Worksheets
+// Create worksheets
 const workSheet = xlsxGenerator.createWorkSheet(
   data,
   "Fruit Sales",
@@ -151,7 +151,7 @@ const xlsxGenerator = new XlsxGenerator();
 const data = [];
 const password = "SuperSecurePassword";
 
-// Create Worksheets
+// Create worksheets
 const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file with password
