@@ -24,6 +24,7 @@ Simple usage:
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
 
+const xlsxGenerator = new XlsxGenerator();
 const data = [
   {
     fruit: "Apples",
@@ -33,10 +34,10 @@ const data = [
 ];
 
 // Create worksheets
-const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
+xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
 ```
 
 or the older way
@@ -56,7 +57,7 @@ const data = [
 const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
+XlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
 ```
 
 ### Multiple Worksheets
@@ -66,6 +67,7 @@ Can handle multiple worksheets.
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
 
+const xlsxGenerator = new XlsxGenerator();
 const data1 = [
   {
     fruit: "Apples",
@@ -82,11 +84,11 @@ const data2 = [
 ];
 
 // Create worksheets
-const workSheet1 = XlsxGenerator.createWorkSheet(data1, "Fruit Sales: May");
-const workSheet2 = XlsxGenerator.createWorkSheet(data2, "Fruit Sales: June");
+const workSheet1 = xlsxGenerator.createWorkSheet(data1, "Fruit Sales: May");
+const workSheet2 = xlsxGenerator.createWorkSheet(data2, "Fruit Sales: June");
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", [
+xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
   workSheet1,
   workSheet2,
 ]);
@@ -99,6 +101,7 @@ Default headers can be added. **NOTE:** Headers must match data structure exactl
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
 
+const xlsxGenerator = new XlsxGenerator();
 const data = [
   {
     fruit: "Apples",
@@ -109,10 +112,10 @@ const data = [
 const headers = ["fruit", "quantity", "price"];
 
 // Create worksheets
-const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales", headers);
+const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales", headers);
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
+xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
 ```
 
 ### Cell Origin
@@ -122,12 +125,13 @@ The cell origin of the data can be specified in `A1` format.
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
 
+const xlsxGenerator = new XlsxGenerator();
 const data = [];
 const headers = ["fruit", "quantity", "price"];
 const cellOrigin = "B2";
 
 // Create Worksheets
-const workSheet = XlsxGenerator.createWorkSheet(
+const workSheet = xlsxGenerator.createWorkSheet(
   data,
   "Fruit Sales",
   headers,
@@ -135,7 +139,7 @@ const workSheet = XlsxGenerator.createWorkSheet(
 );
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
+xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
 ```
 
 ### Password Encryption
@@ -143,14 +147,19 @@ XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet]);
 ```js
 import { XlsxGenerator } from "xlsx-encrypter";
 
+const xlsxGenerator = new XlsxGenerator();
 const data = [];
 const password = "SuperSecurePassword";
 
 // Create Worksheets
-const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
+const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file with password
-XlsxGenerator.exportWorkSheetsToFile("/file-directory", [workSheet], password);
+xlsxGenerator.exportWorkSheetsToFile(
+  "/file-dir/file-name.xlsx",
+  [workSheet],
+  password
+);
 ```
 
 ## Getting Started
