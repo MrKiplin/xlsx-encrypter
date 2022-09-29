@@ -30,13 +30,13 @@ describe("xlsx-generator", () => {
 
   const testFileDirectory = join(__dirname, "../test-files");
 
-  it("Generates an xlsx file with headers", () => {
+  it("Generates an xlsx file with headers", async () => {
     const filePath = join(
       tempOutputDirectory.name,
       "/worksheet-with-headers.xlsx"
     );
     const workSheet = xlsxGenerator.createWorkSheet([], sheetName, headers);
-    xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
+    await xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
 
     const pathToExpectedReport = join(
       testFileDirectory,
@@ -54,7 +54,7 @@ describe("xlsx-generator", () => {
     expect(generatedReport).toEqual(expectedReport);
   });
 
-  it("Generates an xlsx file with data", () => {
+  it("Generates an xlsx file with data", async () => {
     const filePath = join(
       tempOutputDirectory.name,
       "/worksheet-with-data.xlsx"
@@ -65,7 +65,7 @@ describe("xlsx-generator", () => {
       sheetName,
       headers
     );
-    xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
+    await xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
 
     const pathToExpectedReport = join(
       testFileDirectory,
@@ -83,7 +83,7 @@ describe("xlsx-generator", () => {
     expect(generatedReport).toEqual(expectedReport);
   });
 
-  it("Generates an xlsx file with data placed at custom cell origin", () => {
+  it("Generates an xlsx file with data placed at custom cell origin", async () => {
     const filePath = join(
       tempOutputDirectory.name,
       "/worksheet-with-custom-cell-origin.xlsx"
@@ -97,7 +97,7 @@ describe("xlsx-generator", () => {
       headers,
       cellOrigin
     );
-    xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
+    await xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet]);
 
     const pathToExpectedReport = join(
       testFileDirectory,
@@ -116,7 +116,7 @@ describe("xlsx-generator", () => {
   });
 
   // eslint-disable-next-line jest/expect-expect
-  it("Generates an xlsx file with password", () => {
+  it("Generates an xlsx file with password", async () => {
     const filePath = join(
       tempOutputDirectory.name,
       "/worksheet-with-password.xlsx"
@@ -127,6 +127,6 @@ describe("xlsx-generator", () => {
       sheetName,
       headers
     );
-    xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet], password);
+    await xlsxGenerator.exportWorkSheetsToFile(filePath, [workSheet], password);
   });
 });
