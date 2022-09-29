@@ -37,12 +37,14 @@ const data = [
 const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+  workSheet,
+]);
 ```
 
 or the older way
 
-```javascript
+```js
 const XlsxGenerator = require("xlsx-encrypter");
 
 const data = [
@@ -57,7 +59,9 @@ const data = [
 const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-XlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
+void XlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+  workSheet,
+]);
 ```
 
 ### Multiple Worksheets
@@ -88,7 +92,7 @@ const workSheet1 = xlsxGenerator.createWorkSheet(data1, "Fruit Sales: May");
 const workSheet2 = xlsxGenerator.createWorkSheet(data2, "Fruit Sales: June");
 
 // Create XLSX file
-xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
   workSheet1,
   workSheet2,
 ]);
@@ -115,7 +119,9 @@ const headers = ["fruit", "quantity", "price"];
 const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales", headers);
 
 // Create XLSX file
-xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+  workSheet,
+]);
 ```
 
 ### Cell Origin
@@ -139,7 +145,9 @@ const workSheet = xlsxGenerator.createWorkSheet(
 );
 
 // Create XLSX file
-xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [workSheet]);
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+  workSheet,
+]);
 ```
 
 ### Password Encryption
@@ -155,7 +163,7 @@ const password = "SuperSecurePassword";
 const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file with password
-xlsxGenerator.exportWorkSheetsToFile(
+void xlsxGenerator.exportWorkSheetsToFile(
   "/file-dir/file-name.xlsx",
   [workSheet],
   password

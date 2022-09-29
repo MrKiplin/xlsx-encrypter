@@ -22,11 +22,11 @@ export class XlsxGenerator {
     };
   }
 
-  public exportWorkSheetsToFile(
+  public async exportWorkSheetsToFile(
     filePath: string,
     workSheets: WorkSheetWithName[],
     password?: string
-  ): void {
+  ): Promise<void> {
     const workBook = this.createWorkBook();
 
     for (const workSheet of workSheets) {
@@ -36,7 +36,7 @@ export class XlsxGenerator {
     writeFile(workBook, filePath);
 
     if (password) {
-      this.encryptXlsxFile(filePath, password);
+      await this.encryptXlsxFile(filePath, password);
     }
   }
 
@@ -44,10 +44,10 @@ export class XlsxGenerator {
     return utils.book_new();
   }
 
-  private encryptXlsxFile(filePath: string, password: string) {
+  private async encryptXlsxFile(filePath: string, password: string) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    XlsxPopulate.fromFileAsync(filePath).then((workbook: any) => {
-      workbook.toFileAsync(filePath, {
+    await XlsxPopulate.fromFileAsync(filePath).then(async (workbook: any) => {
+      await workbook.toFileAsync(filePath, {
         password,
       });
     });
