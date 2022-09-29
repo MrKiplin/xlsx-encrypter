@@ -37,7 +37,7 @@ const data = [
 const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-await xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
   workSheet,
 ]);
 ```
@@ -59,7 +59,7 @@ const data = [
 const workSheet = XlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file
-await XlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+void XlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
   workSheet,
 ]);
 ```
@@ -92,7 +92,7 @@ const workSheet1 = xlsxGenerator.createWorkSheet(data1, "Fruit Sales: May");
 const workSheet2 = xlsxGenerator.createWorkSheet(data2, "Fruit Sales: June");
 
 // Create XLSX file
-await xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
   workSheet1,
   workSheet2,
 ]);
@@ -119,7 +119,7 @@ const headers = ["fruit", "quantity", "price"];
 const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales", headers);
 
 // Create XLSX file
-await xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
   workSheet,
 ]);
 ```
@@ -145,7 +145,7 @@ const workSheet = xlsxGenerator.createWorkSheet(
 );
 
 // Create XLSX file
-await xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
+void xlsxGenerator.exportWorkSheetsToFile("/file-dir/file-name.xlsx", [
   workSheet,
 ]);
 ```
@@ -163,7 +163,7 @@ const password = "SuperSecurePassword";
 const workSheet = xlsxGenerator.createWorkSheet(data, "Fruit Sales");
 
 // Create XLSX file with password
-await xlsxGenerator.exportWorkSheetsToFile(
+void xlsxGenerator.exportWorkSheetsToFile(
   "/file-dir/file-name.xlsx",
   [workSheet],
   password
